@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>DC Sample1</title>
+<link rel="stylesheet" type="text/css" href="../commons/css/awsui.css"/>
+<script type="text/javascript" src="../commons/js/jquery/scripts/jquery.js"></script>
+<script type="text/javascript" src="../commons/js/awsui.js"></script>
+
+<script type="text/javascript">
+var testDownloadURL="";
+$(function(){
+	//myUpfile对象绑定upfile组件
+	$("#myUpfile").upfile({
+	    sid: "<#sid>", // 会话ID
+	    appId: "com.actionsoft.apps.poc.plugin", // 应用ID
+	    groupValue: "dir1", // DC大类，建议变量规则
+	    fileValue: "dir2", // DC小类，建议变量规则
+	    numLimit: "2", //最多一次允许上传几个，0(无限制)
+	    filesToFilter : [["Images (*.jpg; *.jpeg; *.gif; *.png; *.bmp)","*.jpg; *.jpeg; *.gif; *.png; *.bmp"]],
+	    repositoryName: "myfile", // 该应用申请的DC名
+	    done: function(e, data){
+	        //事件回调函数
+	        if (data['result']['data']['result'] == 'ok') {
+	            $.simpleAlert('文件上传成功!');
+	            // downloadURL
+	            var url = data['result']['data']['data']['attrs']['url'];
+	            testDownloadURL=url;//测试下载
+	        } else {
+	            // 上传失败，打印出错误信息
+	            $.simpleAlert(data['result']['data']['msg'], data['result']['data']['result']);
+	        }
+	    }
+	});	
+
+});
+
+
+function testDwonload(){
+	if(testDownloadURL==""){
+		 $.simpleAlert('请先上传一个文件');
+	}else{
+		window.location=testDownloadURL;
+	}
+}	
+</script>	
+</head>
+
+<body>
+<form id="frmMain" name="frmMain">
+<br/>
+
+1.点这里
+<span id="myUpfile" class="button green" onclick="return false;">上传</span>
+
+<br/><br/>
+
+2.点这里
+<span id="myDownfile" class="button red" onclick="testDwonload();return false;">下载</span>
+
+</form>	
+</body>
+
+</html>

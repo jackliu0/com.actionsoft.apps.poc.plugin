@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../commons/css/awsui.css"/>
+<script type="text/javascript" src="../commons/js/jquery/scripts/jquery.js"></script>
+<script type="text/javascript" src="../commons/js/awsui.js"></script>
+<title>Welcome My Portal!</title>
+<script type="text/javascript">
+//打开功能
+function navUrl(url){
+	if(url==''){
+		 $.simpleAlert('这是个功能分类!');
+	}else{
+		mainFrame.location=url;
+	}
+}
+
+//退出账户
+function logout(){
+	frmMain.cmd.value="com.actionsoft.apps.poc.plugin_portal_logout";
+	frmMain.target="_self";
+	frmMain.submit();
+}
+
+//自动适应浏览器窗口
+$(document).ready(function() {
+    $("#mainFrame").height($(window).height()-45);
+    $("#mainFrame").width($(window).width());
+    $("#select-function").width(300);
+});
+</script>
+</head>
+<body style="margin:0px">
+<form id="frmMain" name="frmMain">
+<table width=100%>
+<tr><td width=30%>
+<select class="awsui-select" id="select-function" onchange="navUrl(this.value)">
+    <option value="">请选择操作</option>
+    <#nav-list>
+</select>
+<td width=70% align=right>hi,<#userInfo>&nbsp;&nbsp;<a href='' onclick="logout();return false;">退出</a>&nbsp;&nbsp;</td>
+</tr>
+</table>
+<iframe src="" id=mainFrame name=mainFrame width="100%"></iframe>
+<input type="hidden" name="cmd"/>
+<input type="hidden" name="sid" value="<#sid>"/>
+</form>	
+</body>
+</html>

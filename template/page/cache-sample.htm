@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../commons/css/awsui.css"/>
+<script type="text/javascript" src="../commons/js/jquery/scripts/jquery.js"></script>
+<script type="text/javascript" src="../commons/js/awsui.js"></script>
+<title>Cache Sample</title>
+<script type="text/javascript">
+function sample1 () {
+	var dlg=FrmDialog.open({
+	    width:700,
+	    height:400,	    
+	    url:"./w?sid=<#sid>&cmd=com.actionsoft.apps.poc.plugin_cache_sample1",
+	    id:"sample1-dialog"
+	});
+}
+function sample2 () {
+	var dlg=FrmDialog.open({
+	    width:700,
+	    height:400,	    
+	    url:"./w?sid=<#sid>&cmd=com.actionsoft.apps.poc.plugin_cache_sample2",
+	    id:"sample2-dialog"
+	});
+}
+function sample3 () {
+	var dlg=FrmDialog.open({
+	    width:800,
+	    height:400,	    
+	    url:"./w?sid=<#sid>&cmd=com.actionsoft.apps.poc.plugin_cache_sample3",
+	    id:"sample3-dialog"
+	});
+}
+</script>
+</head>
+<body style="margin:10px auto">
+<form id="frmMain" name="frmMain">
+<br/>
+<span class="button" onclick="sample1();return false;">缓存示例</span>&nbsp;
+<span class="button" onclick="sample2();return false;">索引示例</span>&nbsp;
+<span class="button" onclick="sample3();return false;">排序示例</span>&nbsp;
+</form>	
+</body>
+</html>

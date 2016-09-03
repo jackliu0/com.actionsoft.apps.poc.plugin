@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<app xmlns="http://www.actionsoft.com.cn/app">  
+  <name>扩展插件概念验证</name>  
+  <version>1.0</version>  
+  <buildNo>3</buildNo>  
+  <developer id="776cca9a287c8b4d63b9cad216aa3859" tablePrefix="ACT" url="http://www.actionsoft.com.cn">北京炎黄盈动科技发展有限责任公司</developer>  
+  <productId/>  
+  <categoryVisible>false</categoryVisible>  
+  <description><![CDATA[AWS 插件接口功能验证，适用于AWS开发者对相关概念的验证和学习
+]]></description>  
+  <details><![CDATA[该应用提供了扩展各种AWS 插件接口的演示代码，为《AWS 插件扩展开发参考指南》文档提供了相关程序示例
+
+<b>** 特别说明</b>
+-本应用在AWS生产环境(PRD)中被禁用
+-https://docs.awspaas.com/reference-guide/aws-paas-plugin-development-reference-guide/index.html
+-https://github.com/jackliu0/com.actionsoft.apps.poc.plugin
+
+]]></details>  
+  <installListener/>  
+  <pluginListener>com.actionsoft.apps.poc.plugin.Plugins</pluginListener>  
+  <startListener>com.actionsoft.apps.poc.plugin.StartEvent</startListener>  
+  <stopListener/>  
+  <upgradeListener/>  
+  <uninstallListener/>  
+  <reloadable>true</reloadable>  
+  <requires> 
+    <require appId="com.actionsoft.apps.fullsearch" notActiveHandler="warning"/> 
+  </requires>  
+  <properties> 
+    <property action="edit" group="ASLP" name="MY_KEY" title="MY_KEY" type="input" isSystem="false" desc="" ref="">{"key":"hehe","ip":"localhost"}</property> 
+  </properties>  
+  <depend versions="6.1">_bpm.platform</depend>  
+  <installDate>2014-11-22 11:55:12</installDate>  
+  <deployment> 
+    <function id="obj_bf1ae174680346e1bfe20e130d104855" icon16="../apps/com.actionsoft.apps.poc.plugin/img/icon16.png" icon64="../apps/com.actionsoft.apps.poc.plugin/img/icon64.png" icon96="../apps/com.actionsoft.apps.poc.plugin/img/icon96.png" notifier="" name="DCSample1" target="mainFrame" url="./w?sid=@sid&amp;cmd=com.actionsoft.apps.poc.plugin_sample1" deployUrlType="1" source="0"/>  
+    <function id="obj_395ce8646d4e4ed7aa8d4883aca8183d" icon16="../apps/com.actionsoft.apps.poc.plugin/img/icon16.png" icon64="../apps/com.actionsoft.apps.poc.plugin/img/icon64.png" icon96="../apps/com.actionsoft.apps.poc.plugin/img/icon96.png" notifier="" name="DCSample2" target="mainFrame" url="./w?sid=@sid&amp;cmd=com.actionsoft.apps.poc.plugin_sample2" deployUrlType="1" source="0"/>  
+    <function id="obj_e28dd6b3e40744f89e1285f548097922" icon16="../apps/com.actionsoft.apps.poc.plugin/img/icon16.png" icon64="../apps/com.actionsoft.apps.poc.plugin/img/icon64.png" icon96="../apps/com.actionsoft.apps.poc.plugin/img/icon96.png" notifier="" name="DCSample3" target="mainFrame" url="./w?sid=@sid&amp;cmd=com.actionsoft.apps.poc.plugin_sample3" deployUrlType="1" source="0"/>  
+    <function id="obj_e28dd6b3e40744f89e1285f548091122" icon16="../apps/com.actionsoft.apps.poc.plugin/img/icon16.png" icon64="../apps/com.actionsoft.apps.poc.plugin/img/icon64.png" icon96="../apps/com.actionsoft.apps.poc.plugin/img/icon96.png" notifier="" name="DCSample4" target="mainFrame" url="./w?sid=@sid&amp;cmd=com.actionsoft.apps.poc.plugin_sample4" deployUrlType="1" source="0"/>  
+    <function id="obj_faf7fc393e1a404a8c986491d3838363" icon16="../apps/com.actionsoft.apps.poc.plugin/img/icon16.png" icon64="../apps/com.actionsoft.apps.poc.plugin/img/icon64.png" icon96="../apps/com.actionsoft.apps.poc.plugin/img/icon96.png" notifier="" name="ACSample" target="mainFrame" url="./w?sid=@sid&amp;cmd=com.actionsoft.apps.poc.plugin_ac_sample" deployUrlType="1" source="0"/>  
+    <function id="obj_faf7fc393e1a404a8c986491d3838369" icon16="../apps/com.actionsoft.apps.poc.plugin/img/icon16.png" icon64="../apps/com.actionsoft.apps.poc.plugin/img/icon64.png" icon96="../apps/com.actionsoft.apps.poc.plugin/img/icon96.png" notifier="" name="CacheSample" target="mainFrame" url="./w?sid=@sid&amp;cmd=com.actionsoft.apps.poc.plugin_cache_sample" deployUrlType="1" source="0"/>  
+    <function id="obj_faf7fc393e1a404a8c986491d3838362" icon16="../apps/com.actionsoft.apps.poc.plugin/img/icon16.png" icon64="../apps/com.actionsoft.apps.poc.plugin/img/icon64.png" icon96="../apps/com.actionsoft.apps.poc.plugin/img/icon96.png" notifier="" name="FullSearchSample" target="mainFrame" url="./w?sid=@sid&amp;cmd=com.actionsoft.apps.poc.plugin_fs_sample" deployUrlType="1" source="0"/> 
+  </deployment> 
+</app>

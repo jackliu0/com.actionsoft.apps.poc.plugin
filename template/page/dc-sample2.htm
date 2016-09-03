@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>DC Sample2</title>
+<link rel="stylesheet" type="text/css" href="../commons/css/awsui.css"/>
+<script type="text/javascript" src="../commons/js/jquery/scripts/jquery.js"></script>
+<script type="text/javascript" src="../commons/js/awsui.js"></script>
+
+<script type="text/javascript">
+$(function(){
+	//tmpUpfile对象绑定upfile组件
+	$("#tmpUpfile").upfile({
+	    sid: "<#sid>", // 会话ID
+	    appId: "com.actionsoft.apps.poc.plugin", // 应用ID
+	    groupValue: "crm", // DC大类，建议变量规则
+	    fileValue: "customer", // DC小类，建议变量规则
+	    numLimit: "1", //最多一次允许上传几个，0(无限制)
+	    repositoryName: "tmp", // 该应用申请的DC名
+	    done: function(e, data){
+	        //事件回调函数
+	        if (data['result']['data']['result'] == 'ok') {
+	            // downloadURL
+	            var msg = data['result']['data']['msg'];
+	             $.simpleAlert(msg);
+	        } else {
+	            // 上传失败，打印出错误信息
+	            $.simpleAlert(data['result']['data']['msg'], data['result']['data']['result']);
+	        }
+	    }
+	});	
+
+});
+</script>	
+</head>
+
+<body>
+<form id="frmMain" name="frmMain">
+<br/>
+1.点这里
+<span id="tmpUpfile" class="button green" onclick="return false;">上传</span>
+
+<br/><br/>
+
+
+</form>	
+</body>
+
+</html>

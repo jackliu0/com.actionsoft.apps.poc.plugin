@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>AC Sample</title>
+<link rel="stylesheet" type="text/css" href="../commons/css/awsui.css"/>
+<script type="text/javascript" src="../commons/js/jquery/scripts/jquery.js"></script>
+<script type="text/javascript" src="../commons/js/awsui.js"></script>
+
+<script type="text/javascript">
+function setAC123(){
+var dlg = FrmDialog.open({
+    title : "我的权限设置",
+    width : 700,
+    height : 380,
+    url : "./w",
+    data : {
+        sid : "<#sid>",
+        cmd : "CLIENT_COMMON_AC_ACTION_OPEN",
+        resourceId : "123",//业务对象Id
+        resourceType : "poc.plugin.myACTest"//注册的AC资源类型，全局不重复
+    },
+    buttons : [{
+                text : '确定',
+                cls : "blue",
+                handler : function() {
+                    dlg.win().saveAC();
+                }
+            }, {
+                text : '关闭',
+                handler : function() {
+                    dlg.close();
+                }
+            }]
+});	
+}
+
+function checkAC(accessMode){
+awsui.ajax.request({
+    type: "POST",
+    url: "./jd?sid=<#sid>&cmd=com.actionsoft.apps.poc.plugin_ac_check",
+    data: "accessMode="+accessMode,
+    success: function(msg){
+        $.simpleAlert(msg.msg);
+    }
+});	
+}
+</script>	
+</head>
+
+<body>
+<form id="frmMain" name="frmMain">
+<br/>
+<div class="awsui-box" style="padding:30px;height:50px">
+1.点这里
+<span class="button blue" onclick="setAC123();return false;">设置权限</span>
+</div>
+<br/>
+<div class="awsui-box" style="padding:30px;height:50px">
+2.点这里
+<span onclick="checkAC('0');return false;" class="button red">判断我是否有‘权限1’的访问权限</span> &nbsp;
+<span onclick="checkAC('1');return false;" class="button red">判断我是否有‘权限2’的访问权限</span> &nbsp;
+</div>
+</form>	
+</body>
+
+</html>

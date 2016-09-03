@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>DC Sample1</title>
+<link rel="stylesheet" type="text/css" href="../commons/css/awsui.css"/>
+<script type="text/javascript" src="../commons/js/jquery/scripts/jquery.js"></script>
+<script type="text/javascript" src="../commons/js/awsui.js"></script>
+
+<script type="text/javascript">
+$(function(){
+	//myUpfile对象绑定upfile组件
+	$("#myStreamUpfile").upfile({
+	    sid: "<#sid>", // 会话ID
+	    appId: "com.actionsoft.apps.poc.plugin", // 应用ID
+	    groupValue: "hr", // DC使用!前缀时，可以根据自己程序需要提供变量
+	    fileValue: "action1", // DC使用!前缀时，可以根据自己程序需要提供变量
+	    numLimit: "1", //最多一次允许上传几个，0(无限制)
+	    repositoryName: "!myStream", // 该应用申请的DC名
+	    done: function(e, data){
+	        //事件回调函数
+	        if (data['result']['data']['result'] == 'ok') {	        
+	            $.simpleAlert(data['result']['data']['msg']);
+	        } else {
+	            $.simpleAlert(data['result']['data']['msg'], data['result']['data']['result']);
+	        }
+	    }
+	});	
+
+});
+
+
+function testDwonload(){
+	window.location="./df?sid=<#sid>&repositoryName=!myStream&groupValue=hr&fileValue=action1&appId=com.actionsoft.apps.poc.plugin&fileName=abc.txt";
+}	
+</script>	
+</head>
+
+<body>
+<form id="frmMain" name="frmMain">
+<br/>
+
+1.点这里
+<span id="myStreamUpfile" class="button green" onclick="return false;">上传</span>
+
+<br/><br/>
+
+2.点这里
+<span id="myStreamDownfile" class="button red" onclick="testDwonload();return false;">下载</span>
+
+</form>	
+</body>
+
+</html>
